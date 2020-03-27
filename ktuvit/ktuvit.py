@@ -7,8 +7,8 @@ class ApiError(Exception):
 class KtuvitApi(object):
 	"""
 	docstring for KtuvitApi
-	:param protocol(str): the protocol used in order to connect Ktuvit API
-	:param domain(str): The domain of ScrewZira API
+	:param str protocol: the protocol used in order to connect Ktuvit API
+	:param str domain: The domain of ScrewZira API
 	"""
 	def __init__(self, protocol="http", domain="api.screwzira.com"):
 		super(KtuvitApi, self).__init__()
@@ -17,6 +17,11 @@ class KtuvitApi(object):
 		self.domain = domain
 
 	def do_json_api(self, path, params):
+		"""
+			Call the given endpoint (path)
+			:param str path: the endpoint to reach
+			:param dict params: Dictionary of parameters to send the endpoint
+		"""
 		response = self.do_api(path, params)
 		# there is a bug in the api: The response is json of json. Therefore we need to decode it twice.
 		result = json.loads(response.content)

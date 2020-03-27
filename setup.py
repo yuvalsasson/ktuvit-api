@@ -6,7 +6,6 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="ktuvit-api",
     version="0.0.1",
-    author="Django",
     description="Onofficial python client to ktuvit.me (screwzira) API ",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -15,6 +14,7 @@ setuptools.setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)"
     ],
     python_requires='>=3.6',
 )
