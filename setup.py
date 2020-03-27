@@ -8,7 +8,7 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="ktuvit-api",
-    version="0.1.0",
+    version="0.1.1",
     description="Unofficial python client to ktuvit.me (screwzira) API ",
     long_description=long_description,
     long_description_content_type="text/markdown",
