@@ -5,7 +5,11 @@ class ApiError(Exception):
 	pass
 
 class KtuvitApi(object):
-	"""docstring for KtuvitApi"""
+	"""
+	docstring for KtuvitApi
+	:param protocol(str): the protocol used in order to connect Ktuvit API
+	:param domain(str): The domain of ScrewZira API
+	"""
 	def __init__(self, protocol="http", domain="api.screwzira.com"):
 		super(KtuvitApi, self).__init__()
 		self._session = requests.session()
