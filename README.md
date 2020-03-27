@@ -5,6 +5,8 @@ Usage is pretty straight forward:
 import ktuvit
 
 api = ktuvit.KtuvitApi()
+
+api.find_series("Subtitle", "Prodigal.Son.S01E07.720p.HDTV.x264-KILLERS", 1,1) # Possible search_types are FilmName, Subtitle, ImdbID (case sensetive)
 api.find_film('ImdbID', 'tt5463162') # Deadpool 2
 """
 Should return something like this:
