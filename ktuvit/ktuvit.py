@@ -6,9 +6,7 @@ class ApiError(Exception):
 
 class KtuvitApi(object):
 	"""
-	docstring for KtuvitApi
-	:param str protocol: the protocol used in order to connect Ktuvit API
-	:param str domain: The domain of ScrewZira API
+	Implementing Ktuvit API. For further information see: https://www.ktuvit.me/ApiDocumentation.aspx. 
 	"""
 	def __init__(self, protocol="http", domain="api.screwzira.com"):
 		super(KtuvitApi, self).__init__()
@@ -50,9 +48,15 @@ class KtuvitApi(object):
 
 		
 	def find_film(self, search_type, phrase, version="1.0"):
+		"""
+		Possible search types: FilmName, Subtitle, ImdbID
+		"""
 		return self.do_json_api("FindFilm", {"SearchType" : search_type, "SearchPhrase" : phrase, "Version" : "1.0"})
 
 	def find_series(self, search_type, phrase, season, episode, version='1.0'):
+		"""
+		Possible search types: FilmName, Subtitle, ImdbID
+		"""
 		return self.do_json_api("FindSeries", {
 			"SearchType":search_type,
 			'SearchPhrase':phrase,
@@ -61,7 +65,7 @@ class KtuvitApi(object):
 			'Version':version
 			})
 
-	def download_subtitle(self, subtitle_id, font_size=None, hex_color=None):
+	def get_subtitle(self, subtitle_id, font_size=None, hex_color=None):
 		#TODO: Add support for exceptions 
 		params = {
 			"subtitleID" : subtitle_id # Documentation is wrong, param name starts with lowercase 's'
@@ -72,4 +76,4 @@ class KtuvitApi(object):
 		if hex_color is not None:
 			params["HexColor"] = str(hex_color)
 		
-		return self.do_api("Download", params)
+		return self.do_api("Download", params).content

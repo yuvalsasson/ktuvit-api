@@ -1,1 +1,1 @@
-from ktuvit import *
+from .ktuvit import *
